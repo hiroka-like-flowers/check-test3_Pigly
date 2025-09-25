@@ -1,0 +1,67 @@
+.register-form {}
+
+.register-form__heading{
+    text-align: center;
+    color: black;
+    font-size: 20px;
+    font-weight: lighter;
+    margin-bottom: 15px;
+}
+
+.register-from__tag {
+    color: black;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.register-form__inner {
+    margin: 0 auto;
+}
+
+.register-form__form {}
+
+.register-form__group {}
+
+.register-form__label {
+    color: black;
+    margin-bottom: 3px;
+    margin-left: 50px;
+}
+
+.register-form__input {
+    margin-bottom: 10px;
+}
+
+.register-form__input input {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid gainsboro;
+    border-radius: 3px;
+    color: gainsboro;
+}
+
+.register-form__error-message {
+    margin-top: 8px;
+    color: red;
+    grid-column: 2;
+}
+
+.register-form__button {
+    margin-bottom: 10px;
+}
+
+.register-form__button button {
+    color: white;
+    padding: 10px;
+    width: 150px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, rgba(143, 119, 193, 0.506), pink);
+    font-size: large;
+}
+
+.login__link {
+    color: rgb(127, 253, 255);
+    margin-bottom: 8px;
+    margin-top: 8px;
+    border-bottom: 30px;
+}
