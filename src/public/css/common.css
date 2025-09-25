@@ -1,0 +1,88 @@
+body {
+    height: 100%;
+    background-color: #dcdcdc;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 16px 0;
+    height: 80px;
+    border: 1px solid #e1dddd;
+    text-align: center;
+    font-family: serif;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.header__heading {
+    font-weight: lighter;
+    font-size: 32px;
+    color: pink;
+}
+
+.header__button {
+    display: flex;
+    margin-right: 10px;
+}
+
+.header__link-goal {
+    border-radius: 3px;
+    border: 1px solid #e1dddd;
+    background-color: #dcdcdc;
+    color: black;
+    padding: 10px;
+    width: 20px;
+}
+
+.header__link-logout {
+    border-radius: 3px;
+    border: 1px solid #e1dddd;
+    background-color: #dcdcdc;        color: black;
+    padding: 10px;
+    width: 20px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 48px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.pagination li:not(.active) {
+    border: none;
+    padding: 4px 12px;
+}
+
+.pagination li:not(:last-child) {
+    border-right: none;
+}
+
+.pagination a {
+    color: black;
+    text-decoration: none;
+}
+
+.pagination__link {
+    text-decoration: none;
+}
+
+.active {
+    padding: 4px 12px;
+    border: 1px solid white;
+    background: linear-gradient(90deg, rgba(143, 119, 193, 0.506), pink);
+    color: #FFF;
+}

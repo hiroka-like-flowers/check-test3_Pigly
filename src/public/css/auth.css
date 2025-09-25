@@ -1,0 +1,23 @@
+body {
+    height: 100%;
+    background: linear-gradient(45deg, rgb(168, 203, 238), rgb(255, 192, 217), rgb(249, 186, 161));
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.main {
+    background-color: white;
+    width: 40%;
+    text-align: center;
+}
+
+.main__heading {
+    color: pink;
+    margin-top: 5px;
+    font-weight: lighter;
+    font-size: large;
+}
