@@ -4,7 +4,7 @@
 
 Dockerビルド
 
-git httpを入力
+git : https://github.com/hiroka-like-flowers/check-test3_Pigly.git
 DockerDesktopアプリを立ち上げる
 docker-compose up -d --build
 
