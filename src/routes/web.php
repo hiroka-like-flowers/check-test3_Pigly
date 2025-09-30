@@ -13,18 +13,6 @@ use App\Http\Controllers\Weight_logController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/* ブラウザに画面を表示しようroute編確認する */
-Route::get('/auth/login', function () {
-    return view('auth.login');
-});
-
-Route::get('/auth/register_1', function () {
-    return view('auth.register_1');
-});
-
-Route::get('/auth/register_2', function () {
-    return view('auth.register_2');
-});
 
 Route::middleware('auth')->prefix('weight_logs')->group(function () {
     Route::get('/', [Weight_logController::class, 'index']);/* トップページ */
