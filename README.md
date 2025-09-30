@@ -27,3 +27,8 @@ DB_PASSWORD=laravel_pass
 PHP
 Laravel
 MySQL
+
+URL
+　　・開発環境 http://localhost:8080/
+　　・phpMyAdmin http://localhost:8081/
+
