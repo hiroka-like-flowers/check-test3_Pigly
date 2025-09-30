@@ -3,35 +3,37 @@
 .login-form__heading {
     text-align: center;
     color: black;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: lighter;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .login-form__inner {
     margin: 0 auto;
 }
 
-.login-form__form {}
-
-.login-form__group {}
+.login-form__group {
+    display: flex;
+    flex-direction: column;
+}
 
 .login-form__label {
     color: black;
     margin-bottom: 3px;
-    margin-left: 50px;
+    margin-left: 20px;
+    text-align: left;
 }
 
 .login-form__input {
-    margin-bottom: 10px;
+    margin: 0 20px 10px 20px;
 }
 
 .login-form__input input {
-    padding: 10px;
-    width: 250px;
-    border: 1px solid gainsboro;
+    padding: 30px;
+    width: 150px;
+    border: 1px solid rgb(225, 221, 221);
     border-radius: 3px;
-    color: gainsboro;
+    color: rgb(225, 221, 221);
 }
 
 .login-form__error-message {
@@ -42,21 +44,17 @@
 
 .login-form__button {
     margin-bottom: 10px;
-}
-
-.login-form__button button {
     color: white;
     padding: 10px;
-    width: 150px;
-    border-radius: 5px;
-    background: linear-gradient(90deg, rgba(143, 119, 193, 0.506), pink
-    );
+    width: 140px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, rgba(143, 119, 193, 0.506), pink);
     font-size: large;
 }
 
 .register__link {
     color: rgb(127, 253, 255);
-    margin-bottom: 8px;
+    margin-bottom: 20px;
     margin-top: 8px;
     border-bottom: 30px;
 }

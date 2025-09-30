@@ -23,6 +23,16 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function weight_logs()
+    {
+        return $this->hasMany(Weight_log::class);
+    }
+
+    public function weight_target()
+    {
+        return $this->hasMany(Weight_target::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

@@ -16,16 +16,18 @@
 
 <body>
     <div class="app">
+        @if (Auth::check())
         <header class="header">
             <h1 class="header__heading">PiGLy</h1>
             <div class="header__button">
-                <a  class="header__link-goal" href="">目標体重設定</a>
-                <a class="header__link-logout" href="">ログアウト</a>
-            </div><!-- link先はあとで入れる -->
+                <a  class="header__link-goal" href="/weight_logs/goal_setting">目標体重設定</a>
+                <a class="header__link-logout" href="/logout">ログアウト</a>
+            </div>
         </header>
         <div class="content">
             @yield('content')
         </div>
+        @endif
     </div>
 </body>
 
