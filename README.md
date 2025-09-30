@@ -5,6 +5,7 @@
 Dockerビルド
 
 git : https://github.com/hiroka-like-flowers/check-test3_Pigly.git
+   main->create/file->edit/file->feature/file
 DockerDesktopアプリを立ち上げる
 docker-compose up -d --build
 
