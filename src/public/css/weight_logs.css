@@ -1,45 +1,57 @@
 .admin-form {
-    height: 92%;
 }
 
 .admin-form__header {
     background-color: white;
-    height: 18%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    padding: 30px 40px;
+    margin: 20px auto;
+    max-width: 900px;
 }
 
 .weight {
-    display: flex;
-    justify-content: space-between;
-    margin-right: 80px;
-    border-right: 15px solid #e1dddd;
-    padding: 30px 20px;
+    text-align: center;
+    border-right: 1px solid #e1dddd;
+    flex: 1;
+}
+
+.weight:last-child {
+    border-right: none;
 }
 
 .weight-label {
     color: black;
-    font-size: small;
     text-align: left;
+    font-size: 14px;
+    margin-bottom: 8px;
 }
 
 .weight-input {
-    text-align: left;
-    margin-bottom: 10px;
+    margin-right: 4px;
 }
 
 .weight-input input {
     color: black;
+    font-size: 30px;
     font-weight: bold;
-    font-size: large;
 }
 
 .admin-form__inner {
     height: 60%;
+    width: 100%;
+    background-color: white;
+}
+
+.admin-form__form {
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
 }
 
 .admin-form__group {
-    display: flex;
-    justify-content: space-between;
-    margin: 15px 0 15px 0;
 }
 
 .admin-form__input {
@@ -51,14 +63,11 @@
     border-radius: 3px;
     border: 1px solid #e1dddd;
     color: #e1dddd;
-    padding: 10px;
-    width: 80px;
+    padding: 15px;
+    width: 180px;
 }
 
 .admin-form__actions {
-    display: flex;
-    justify-content: space-between;
-    margin: 15px 0 15px 0;
 }
 
 .search-button {
@@ -93,13 +102,15 @@
     opacity: 1;
 }
 
-.modal-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
+.modal-trigger {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 8px;
+    background: linear-gradient(90deg, rgba(143, 119, 193, 0.506),pink);
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 900px;
 }
 
 .log-form {
@@ -107,9 +118,10 @@
     top: 50%;
     left: 50%;
     width: 50%;
-    border: 1px solid #8B7969;
-    background-color: white;
+    border: 1px solid linear-gradient(90deg, rgba(143, 119, 193, 0.506), pink);
+    background: white;
     transform: translate(-50%, -50%);
+    padding: 20px;
 }
 
 .log-form__heading {
@@ -185,7 +197,7 @@
     border-radius: 3px;
     border: 1px solid #e1dddd;
     background-color: #e1dddd;
-    color: black;
+    color: rgb(62, 62, 62);
     align-items: center;
     padding: 10px;
     width: 120px;
@@ -196,7 +208,7 @@
     border-radius: 3px;
     border: 1px solid #e1dddd;
     background: linear-gradient(90deg, rgba(143, 119, 193, 0.506), pink);
-    color: white;
+    color: rgb(211, 207, 207);
     padding: 10px;
     width: 120px;
     margin-right: 10px;

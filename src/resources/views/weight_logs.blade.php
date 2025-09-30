@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+<link rel="stylesheet" href="{{ asset('css/weight_logs.css') }}">
 @endsection
 
 @section('content')
@@ -9,35 +9,39 @@
     <section class="admin-form__header">
         <div class="weight">
             <label class="weight-label" for="goal">目標体重</label>
-            <input class="weight-input" type="text" name="" id="">kg
-        </div><!-- ＄何かで目標体重を表す -->
+            <input class="weight-input" type="hidden" name="goal" value="{{ $targetWeight ?? 0 }}">kg
+        </div>
         <div class="weight">
             <label class="weight-label" for="how">目標まで</label>
-            <input class="weight-input" type="text" name="" id="">kg
-        </div><!-- ＄何かで目標体重ー最新体重にする -->
+            <input class="weight-input" type="hidden" name="how" value="{{ ($targetWeight ?? 0) - ($latestWeight ?? 0) }}">kg
+        </div>
         <div class="weight">
             <label class="weight-label" for="weight">最新体重</label>
-            <input class="weight-input" type="text" name="" id="">kg
-        </div><!-- $何かで
-        最新体重を表す -->
-    </section><!-- 入力したものを反映させる、あとで調べてから入力 -->
+            <input class="weight-input" type="hidden" name="now" value="{{ $latestWeight ?? 0 }}">kg
+        </div>
+    </section>
     <div class="admin-form__inner">
-        <form class="admin-form__form" action="" method=""><!-- あとで入れる -->
+        <form class="admin-form__form" action="/weight_logs/search" method="POST"><!-- 体重検索 -->
+            @csrf
             <div class="admin-form__group">
-                <input class="admin-form__input" type="date" name="date" id="date" placeholder="年/月/日 min="2023-11-01"> ~
-                <input class="admin-form__input" type="date" name="date" id="date" placeholder="年/月/日 max="2023-11-30">
+                <input class="admin-form__input" type="date" name="date" id="date" placeholder="年/月/日 min="2023-11-01" value="{{ request('min') }}" /> ~
+                <input class="admin-form__input" type="date" name="date" id="date" placeholder="年/月/日 max="2023-11-30" value="{{ request('max') }}" />
             </div>
             <div class="admin-form__actions">
                 <input class="search-button" type="submit" value="検索">
-                <input class="reset-button" type="submit" value="リセット" name="reset" style="display:none;">
-            </div><!-- 検索を押したらリセットボタンが出てくるよう設定する -->
+                @if(request()->has('date') && request('min') . request('max') !== '')
+                    <input class="reset-button" type="submit" value="リセット" name="reset">
+                @endif
+            </div>
         </form>
-        <div class="modal">
-            <a href="#!" class="modal-overlay">データ追加</a>
+        <a href="#modal" class="modal-trigger">データ追加</a>
+        <div class="modal" id="modal">
+            <a href="#" class="modal-overlay"></a>
             <div class="log-form">
                 <h2 class="log-form__heading">Weight Log</h2>
                 <div class="log-form__inner">
-                    <form class="log-form__form" action="" method=""><!-- あとで入れる -->
+                    <form class="log-form__form" action="/weight_logs/create" method="POST">
+                        @csrf
                         <div class="log-form__group">
                             <label class="log-form__label" for="date">日付
                                 <span class="log-form__required">必須</span>
@@ -61,7 +65,7 @@
                             </p>
                         </div>
                         <div class="log-form__group">
-                            <label class="log-form__label" for="calory">摂取カロリー
+                            <label class="log-form__label" for="calories">摂取カロリー
                                 <span class="log-form__required">必須</span>
                             </label>
                             <input class="log-form__input" type="text" name="calory" id="calory" placeholder="1200">cal
@@ -75,7 +79,7 @@
                             <label class="log-form__label" for="time">運動時間
                                 <span class="log-form__required">必須</span>
                             </label>
-                            <input class="log-form__input" type="text" name="time" id="time" placeholder="00:00">
+                            <input class="log-form__input" type="text" name="exercise_time" id="time" placeholder="00:00">
                             <p class="log-form__error-message">
                                 @error('time')
                                     {{ $message }}
@@ -84,7 +88,7 @@
                         </div>
                         <div class="log-form__group">
                             <label class="log-form__label" for="content">運動内容</label>
-                            <input class="log-form__textarea" type="hidden" name="content" placeholder="運動内容を追加">
+                            <textarea class="log-form__textarea" cols="30" rows="10" name="exercise_content" placeholder="運動内容を追加"></textarea>
                             <p class="log-form__error-message">
                                 @error('content')
                                     {{ $message }}
@@ -99,8 +103,8 @@
                 </div>
             </div>
         </div>
-   {{-- @if(isset($items))
-        <p class="admin-form__result">{{$min}}~{{$max}}の検索結果{{$count}}件</p>
+        @if(isset($items))
+        <p class="admin-form__result">{{ request('min') }}~{{ request('max') }}の検索結果{{$count ?? 0}}件</p>
         <table class="admin__table">
             <tr class="admin__row">
                 <th class="admin__label">日付</th>
@@ -113,15 +117,16 @@
                 <tr class="admin__row">
                     <td class="admin__data">{{$item->date}}</td>
                     <td class="admin__data">{{$item->weight}}</td>
-                    <td class="admin__data">{{$item->calory}}</td>
-                    <td class="admin__data">{{$item->time}}</td>
+                    <td class="admin__data">{{$item->calories}}</td>
+                    <td class="admin__data">{{$item->exercise_time}}</td>
                     <td class="admin__data">
-                        <a class="admin__detail-button" href="#{{$item->id}}"></a>
-                    </td>情報更新画面に遷移する
+                        <a class="admin__detail-button" href="{{ route('weight_logs.show', ['weightLogId' => $item->id]) }}"></a>
+                    </td><!-- 情報画面に遷移する -->
                 </tr>
             @endforeach
-        </table> --}}
+        </table>
+        @endif
     </div>
-    {{-- {{ $admin->links( )}} --}}
+    {{ $items->links() }}
 </div>
 @endsection

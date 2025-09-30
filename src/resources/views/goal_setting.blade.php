@@ -1,16 +1,19 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/goal.css') }}">
+<link rel="stylesheet" href="{{ asset('css/goal_setting.css') }}">
 @endsection
 
 @section('content')
 <div class="goal-form">
     <h2 class="goal-form__heading">目標体重設定</h2>
     <div class="goal-form__inner">
-        <form class="goal-form__form" action="" method=""><!-- あとで入れる -->
+        <form class="goal-form__form" action="/weight_logs/goal_setting" method="POST">
+            @method('PATCH')
+            @csrf
             <div class="goal-form__group">
-                <input class="goal-form__input" type="text" name="weight" id="weight" placeholder="46.5">kg
+                <input class="goal-form__input" type="text" name="weight" value="{{ $items['weight'] }}">kg
+                <input type="hidden" name="id" value="{{ $items['id'] }}">
                 <p class="goal-form__error-message">
                     @error('weight')
                         {{ $message }}
