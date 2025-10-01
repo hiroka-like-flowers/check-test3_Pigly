@@ -35,6 +35,6 @@ ER図<img width="579" height="654" alt="image" src="https://github.com/user-atta
 　　　email:suzukihanako@a.com
 　　　password:121234
 URL
-　　・開発環境 http://localhost:8080/
-　　・phpMyAdmin http://localhost:8081/
+　　・開発環境 http://localhost:8082/
+　　・phpMyAdmin http://localhost:8083/
 
