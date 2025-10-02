@@ -13,7 +13,7 @@
             @csrf
             <div class="log-form__group">
                 <label class="log-form__label" for="date">日付</label>
-                <input class="log-form__input" type="date" name="date" value="{{ $items('date') }}">
+                <input class="log-form__input" type="date" name="date" value="{{ $items['date'] }}">
                 <input type="hidden" name="id" value="{{ $items['id'] }}">
                 <p class="log-form__error-message">
                     @error('date')
@@ -23,7 +23,7 @@
             </div>
             <div class="log-form__group">
                 <label class="log-form__label" for="weight">体重</label>
-                <input class="log-form__input" type="text" name="weight" value="{{ $items('weight') }}">kg
+                <input class="log-form__input" type="text" name="weight" value="{{ $items['weight'] }}">kg
                 <input type="hidden" name="id" value="{{ $items['id'] }}">
                 <p class="log-form__error-message">
                     @error('weight')
@@ -33,7 +33,7 @@
             </div>
             <div class="log-form__group">
                 <label class="log-form__label" for="calory">摂取カロリー</label>
-                <input class="log-form__input" type="text" name="calory" value="{{ $items('calories') }}">cal
+                <input class="log-form__input" type="text" name="calory" value="{{ $items['calories'] }}">cal
                 <input type="hidden" name="id" value="{{ $items['id'] }}">
                 <p class="log-form__error-message">
                     @error('calory')
@@ -43,7 +43,7 @@
             </div>
             <div class="log-form__group">
                 <label class="log-form__label" for="time">運動時間</label>
-                <input class="log-form__input" type="text" name="time" value="{{ $items('exercise_time') }}">
+                <input class="log-form__input" type="text" name="time" value="{{ $items['exercise_time'] }}">
                 <input type="hidden" name="id" value="{{ $items['id'] }}">
                 <p class="log-form__error-message">
                     @error('time')
@@ -53,7 +53,7 @@
             </div>
             <div class="log-form__group">
                 <label class="log-form__label" for="content">運動内容</label>
-                <textarea class="log-form__textarea"  name="content" value="{{ $items('exercise_content') }}"></textarea>
+                <textarea class="log-form__textarea"  name="content" value="{{ $items['exercise_content'] }}"></textarea>
                 <input type="hidden" name="id" value="{{ $items['id'] }}">
                 <p class="log-form__error-message">
                     @error('content')

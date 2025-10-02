@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'weight',
+        'target_weight',
     ];
 
     public function weight_logs()

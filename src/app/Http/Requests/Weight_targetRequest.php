@@ -24,15 +24,15 @@ class Weight_targetRequest extends FormRequest
     public function rules()
     {
         return [
-            'weight' => ['required', 'regex:/^\d{1,3}(\.\d{1})?$/'],
+            'target_weight' => ['required', 'regex:/^\d{1,3}(\.\d{1})?$/'],
         ];
     }
 
     public function messages()
     {
         return [
-            'weight.required' => '体重を入力してください',
-            'weight.regex' => '小数点1桁で4桁までで入力してください',
+            'target_weight.required' => '体重を入力してください',
+            'target_weight.regex' => '小数点1桁で4桁までで入力してください',
         ];
     }
 }
