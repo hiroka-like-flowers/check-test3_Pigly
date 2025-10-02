@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Weight_logController;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,6 @@ use App\Http\Controllers\Weight_logController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::middleware('auth')->prefix('weight_logs')->group(function () {
     Route::get('/', [Weight_logController::class, 'index']);/* トップページ */
     Route::get('search', [Weight_logController::class, 'find']);/* 何件の方 */
@@ -25,3 +25,16 @@ Route::middleware('auth')->prefix('weight_logs')->group(function () {
     Route::get('goal_setting', [Weight_logController::class, 'showGoalForm']);/* 目標設定 */
     Route::patch('goal_setting', [Weight_logController::class, 'updateTarget']);/* 目標設定 */
 });
+Route::get('/register/step1', function () {
+    return view('auth.register_1');
+})->name('register.step1');
+Route::post('/register/step1', function (Request $request) {
+    $request->session()->put('register', $request->only(['name', 'email', 'password']));
+    return redirect()->route('register.step2');
+})->name('register.step1.post');
+Route::get('/register/step2', function () {
+    return view('auth.register_2');
+})->name('register.step2');
+Route::get('/logout', function () {
+    return view('auth.login');
+})->name('login');

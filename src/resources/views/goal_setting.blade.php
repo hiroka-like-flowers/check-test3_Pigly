@@ -12,7 +12,7 @@
             @method('PATCH')
             @csrf
             <div class="goal-form__group">
-                <input class="goal-form__input" type="text" name="weight" value="{{ $items['weight'] }}">kg
+                <input class="goal-form__input" type="text" name="target_weight" value="{{ $items['target_weight'] }}">kg
                 <input type="hidden" name="id" value="{{ $items['id'] }}">
                 <p class="goal-form__error-message">
                     @error('weight')

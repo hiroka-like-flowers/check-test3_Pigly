@@ -1,5 +1,5 @@
 @extends('layouts.auth')
-<!-- ユーザー認証入れる必要あり。ユーザー認証について学ぼう参照 -->
+
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/auth/register_1.css') }}">
 @endsection
@@ -9,7 +9,7 @@
     <h2 class="register-form__heading">新規会員登録</h2>
     <p class="register-form__tag">STEP1 アカウント情報の登録</p>
     <div class="register-form__inner">
-        <form class="register-form__form" action="/register/step1" method="POST">
+        <form class="register-form__form" action="{{ route('register.step1.post') }}" method="POST">
             @csrf
             <div class="register-form__group">
                 <label class="register-form__label" for="name">お名前</label>
@@ -41,6 +41,6 @@
             <input class="register-form__button" type="submit" value="次に進む">
         </form>
     </div>
-    <a class="login__link" href="/auth.login">ログインはこちら</a>
+    <a class="login__link" href="/login">ログインはこちら</a>
 </div>
 @endsection

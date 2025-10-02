@@ -31,6 +31,6 @@
             <input class="login-form__button" type="submit" value="ログイン">
         </form>
     </div>
-    <a class="register__link" href="/auth.register_1">アカウント作成はこちら</a>
+    <a class="register__link" href="/register/step1">アカウント作成はこちら</a>
 </div>
 @endsection
